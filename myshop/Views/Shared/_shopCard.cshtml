@@ -1,0 +1,30 @@
+﻿@model Shop
+<div class="col-sm-4 col-lg-4 col-md-4">
+    <div class="thumbnail">
+
+
+        @*<img src="~/Images/sofa2.jpg">*@
+        <img src ="@Model.ImageThumbnailUrl" alt="Imgae for the shop"/>
+    </div>
+    <div class="caption">
+        <h3 class="pull-right"> @Model.Price.ToString("c")</h3>
+
+        <h2> <a asp-controller="Shop" asp-action="Details" asp-route-id="@Model.ShopId"> @Model.Name </a></h2>
+
+        <p> @Model.Description  </p>
+    </div>
+    <div class="addToCart">
+        <p class="button">
+            <a class="btn btn-primary"
+               asp-controller="ShoppingCart"
+               asp-action="AddToShoppingCart"
+               asp-route-ShopId="@Model.ShopId"> Add To Cart</a>
+           </p>
+
+    </div>
+
+
+
+
+
+</div>
