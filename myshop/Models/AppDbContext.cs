@@ -1,12 +1,17 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace myshop.Models
+
 {
-    public class AppDbContext : DbContext
+    public class AppDbContext :IdentityDbContext<IdentityUser>
+
     {
         public AppDbContext(DbContextOptions<AppDbContext> options) :
             base(options)
@@ -20,6 +25,12 @@ namespace myshop.Models
 
         ////Adding Database set of shoppingcart////
         public DbSet<ShoppingCartItem> ShoppingCartItems { get; set; }
+
+        //Adding database srt of Order details//
+        public DbSet<Order> Orders { get; set; }
+        public DbSet<OrderDetail> OrderDetails { get; set; }
+
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
              base.OnModelCreating(modelBuilder);
