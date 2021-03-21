@@ -5,7 +5,7 @@
 <table class="table table-bordered table-striped">
     <thead>
         <tr>
-         
+
             <th> Added Quantity </th>
             <th>Items </th>
             <th class="text-right">Price</th>
@@ -16,7 +16,7 @@
         @foreach (var item in Model.ShoppingCart.ShoppingCartItems)
         {
             <tr>
-                
+
                 <td class="text-center">@item.Amount</td>
                 <td class="text-left">@item.Shop.Name</td>
                 <td class="text-right">@item.Shop.Price.ToString("c")</td>
@@ -33,9 +33,11 @@
         </tr>
     </tfoot>
 </table>
+<a class="btn btn-primary" asp-controller="ShoppingCart" asp-action="ClearCart">Clear Cart</a>
+<a class="btn btn-primary" asp-controller="Order" asp-action="Checkout">Checkout</a>
 
-<div class="text-center">
-    <button type="button" class="btn btn-primary"> Pay now </button>
-    <button type="button" class="btn btn-danger"> cancel </button>
+@*<div class="text-center">
+        <button type="button" class="btn btn-primary"> Pay now </button>
+        <button type="button" class="btn btn-danger"> cancel </button>
 
-</div>
+    </div>*@

@@ -33,6 +33,7 @@ namespace myshop
             services.AddScoped<ICategoryRepository,CategoryRepository>();
             services.AddScoped<IShopRepository, ShopRepository>();
             services.AddScoped<ShoppingCart>(sc => ShoppingCart.GetCart(sc));
+            services.AddScoped<IOrderRepository, OrderRepository>();
 
             services.AddHttpContextAccessor();
             services.AddSession();
@@ -60,6 +61,7 @@ namespace myshop
 
 
             app.UseRouting();
+            app.UseAuthentication();
 
             app.UseAuthorization();
 
